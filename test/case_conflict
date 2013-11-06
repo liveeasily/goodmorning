@@ -1,0 +1,20 @@
+Fetching project proj_1
+Fetching project proj_2
+
+project proj_2/
+First, rewinding head to replay your work on top of it...
+Applying: Modify B from client
+Using index info to reconstruct a base tree...
+M	b
+Falling back to patching base and 3-way merge...
+Auto-merging b
+CONFLICT (content): Merge conflict in b
+Recorded preimage for 'b'
+Failed to merge in the changes.
+Patch failed at 0001 Modify B from client
+The copy of the patch that failed is found in:
+   /home/sean/test/gits/repo_test/proj_2/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".

@@ -1,0 +1,9 @@
+Fetching project proj_2
+remote: Counting objects: 5, done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From /home/sean/test/gits/proj_2
+   b55d8ea..d519d9e  master     -> base/master
+
+error: proj_2/: contains uncommitted changes
+
