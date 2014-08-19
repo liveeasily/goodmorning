@@ -1,0 +1,49 @@
+#!/usr/bin/env python
+
+import argparse
+from argparse import RawTextHelpFormatter
+
+import config
+
+parser = argparse.ArgumentParser(description='Good Morning Script',
+                                 formatter_class=RawTextHelpFormatter)
+
+# mandatory arguments
+parser.add_argument('top_dir',
+                    help=('the top directory of the repo\n'
+                    'Examples: ~/android/aosp, /home/sean/aosp'))
+parser.add_argument('target',
+                    help='the target to build with lunch\n'
+                    'Examples: aosp_arm-eng, 4')
+
+# optional arguments
+parser.add_argument('-l', '--log-dir', dest='log_dir',
+                    default='~/tmp/goodmorning/logs/',
+                    help=('the directory for log files '
+                    '(default:~/tmp/goodmorming/logs)\n'
+                    'Examples: /var/log/goodmorming'))
+parser.add_argument('-j', '--jobs', type=int,
+                    default=4,
+                    help='projects to fetch simultaneously (default: 4)')
+parser.add_argument('-e', '--env-file', dest='env_file',
+                    default='build/envsetup.sh',
+                    help=('the script file to initialize the environment '
+                    '(default: build/envsetup.sh)'))
+
+def main():
+    args = parser.parse_args()
+
+    config.top_dir  = args.top_dir
+    config.target   = args.target
+    config.log_dir = args.log_dir
+    config.jobs = args.jobs
+    config.env_file = args.env_file
+
+    if not config.validate():
+        return
+
+    # TODO : next progress..
+    config.dump()
+
+if __name__ == '__main__':
+    main()
